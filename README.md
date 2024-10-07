@@ -41,7 +41,7 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/to-do-application-frontend.git
+   git clone https://github.com/ashugupta1/To-Do-Application-Frontend-.git
    cd to-do-application-frontend
 2. Install the required dependencies:
    npm install
