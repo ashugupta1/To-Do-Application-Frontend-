@@ -12,7 +12,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/api/auth/signup', { email, username, password });
+      await axios.post('https://to-do-application-backend-4yis.onrender.com/api/auth/signup', { email, username, password });
       navigate('/login'); // Redirect to login after successful sign-up
     } catch (err) {
       setError('Error creating account. Please try again.');
