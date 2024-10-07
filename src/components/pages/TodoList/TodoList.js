@@ -11,7 +11,7 @@ const TodoList = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/tasks", {
+        const res = await axios.get("https://to-do-application-backend-4yis.onrender.com/api/tasks", {
           headers: { "x-auth-token": token },
         });
         console.log(res.data);
@@ -27,7 +27,7 @@ const TodoList = () => {
     if (!newTask || !newDescription) return; // Prevent adding empty tasks
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/tasks",
+        "https://to-do-application-backend-4yis.onrender.com/api/tasks",
         { title: newTask, description: newDescription },
         {
           headers: { "x-auth-token": token },
@@ -45,7 +45,7 @@ const TodoList = () => {
     const newStatus = status === "completed" ? "incomplete" : "completed";
     try {
       await axios.put(
-        `http://localhost:8080/api/tasks/${id}`,
+        `https://to-do-application-backend-4yis.onrender.com/api/tasks/${id}`,
         { status: newStatus },
         {
           headers: { "x-auth-token": token },
@@ -63,7 +63,7 @@ const TodoList = () => {
 
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/tasks/${id}`, {
+      await axios.delete(`https://to-do-application-backend-4yis.onrender.com/api/tasks/${id}`, {
         headers: { "x-auth-token": token },
       });
       setTasks(tasks.filter((task) => task._id !== id));
