@@ -13,15 +13,29 @@ const Login = ({ setIsAuthenticated }) => {
     try {
       const res = await axios.post(
         "https://to-do-application-backend-4yis.onrender.com/api/auth/login",
-        { email, password }
+        { email, password },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
-      localStorage.setItem("token", res.data.token);
-      setIsAuthenticated(true);
-      navigate("/tasks"); // Navigate to tasks after successful login
+      
+      console.log("Response data:", res.data); // Log response data to debug
+  
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        setIsAuthenticated(true);
+        navigate("/tasks"); // Navigate to tasks after successful login
+      } else {
+        setError("No token returned. Please check the backend.");
+      }
     } catch (err) {
+      console.error("Error during login request:", err);
       setError("Invalid credentials. Please try again.");
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
