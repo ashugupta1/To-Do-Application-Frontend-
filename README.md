@@ -44,7 +44,12 @@ Make sure you have the following installed:
    git clone https://github.com/ashugupta1/To-Do-Application-Frontend-.git
    cd to-do-application-frontend
 2. Install the required dependencies:
+   ```bash
    npm install
    
 4. Running the Application
+   ```bash
    npm start
+
+5. make sure login signup and todoList api must be change to http://localhost:8080/api/auth/signup, http://localhost:8080/api/auth/login and http://localhost:8080/api/tasks
+   then i will properly work (according to your port)
